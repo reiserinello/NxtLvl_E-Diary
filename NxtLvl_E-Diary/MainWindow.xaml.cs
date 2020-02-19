@@ -34,5 +34,33 @@ namespace NxtLvl_E_Diary
                 ctx.SaveChanges();
             }
         }
+
+        private void btnLogin_Click(object sender, RoutedEventArgs e)
+        {
+            string varUsername = txtUsername.Text;
+            string varPassword = txtPassword.Password;
+            
+            if (varUsername != null && varUsername != string.Empty && varPassword != null && varPassword != string.Empty)
+            {
+                userManipulate checkSubmitedCreds = new userManipulate();
+
+                var loginSuccessful = checkSubmitedCreds.CheckUserLogin(varUsername, varPassword);
+
+                if (loginSuccessful == true)
+                {
+                    int userID = checkSubmitedCreds.getUserID(varUsername);
+
+                    DiaryMain DiaryMainWindow = new DiaryMain(userID);
+                    DiaryMainWindow.Show();
+
+                    // Hide because it's the main window / .close() would close the whole application
+                    this.Close();
+                }
+            } 
+            else
+            {
+                MessageBox.Show("Please enter values for Username and Password","Attention");
+            }
+        }
     }
 }
