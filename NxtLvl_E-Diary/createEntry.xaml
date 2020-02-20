@@ -1,0 +1,22 @@
+﻿<Window x:Class="NxtLvl_E_Diary.createEntry"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NxtLvl_E_Diary"
+        mc:Ignorable="d"
+        Title="createEntry" Height="312" Width="433.333">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="0*"/>
+        </Grid.ColumnDefinitions>
+        <TextBox x:Name="txtEntryText" HorizontalAlignment="Left" Height="216" Margin="10,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="271"/>
+        <Label x:Name="lblEntryTitle" Content="Title:" HorizontalAlignment="Left" Margin="295,31,0,0" VerticalAlignment="Top" Width="39" Height="26" RenderTransformOrigin="0.615,2.115"/>
+        <TextBox x:Name="txtEntryTitle" HorizontalAlignment="Left" Height="23" Margin="295,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="114"/>
+        <Button x:Name="btnSaveEntry" Content="Save" HorizontalAlignment="Left" Margin="295,226,0,0" VerticalAlignment="Top" Width="114" Height="21" Click="btnSaveEntry_Click"/>
+        <DatePicker x:Name="dtpEntryDate" HorizontalAlignment="Left" Margin="295,85,0,0" VerticalAlignment="Top" Width="114"/>
+
+    </Grid>
+</Window>

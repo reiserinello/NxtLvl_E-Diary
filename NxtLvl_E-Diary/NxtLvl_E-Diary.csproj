@@ -65,6 +65,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="createEntry.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="DiaryMain.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -78,6 +82,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="controller.cs" />
+    <Compile Include="createEntry.xaml.cs">
+      <DependentUpon>createEntry.xaml</DependentUpon>
+    </Compile>
     <Compile Include="createModel.cs" />
     <Compile Include="DiaryMain.xaml.cs">
       <DependentUpon>DiaryMain.xaml</DependentUpon>

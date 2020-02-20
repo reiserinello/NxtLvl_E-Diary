@@ -20,18 +20,22 @@ namespace NxtLvl_E_Diary
     /// </summary>
     public partial class DiaryMain : Window
     {
+        private int diaryID;
+
         public DiaryMain(int userID)
         {
             InitializeComponent();
 
             diaryManipulate diaryManipulation = new diaryManipulate();
 
-            int diaryID = diaryManipulation.createDiary(userID);
+            diaryID = diaryManipulation.createDiary(userID);
 
-            updateDiaryList(diaryID);
+            // Aufruf hier ohne diaryID möglich? da bereits in klasse definiert
+            updateDiaryList();
         }
 
-        public void updateDiaryList(int diaryID)
+        public void updateDiaryList()
+        //public void updateDiaryList(int diaryID)
         {
             diaryManipulate diaryManipulation = new diaryManipulate();
 
@@ -42,7 +46,10 @@ namespace NxtLvl_E_Diary
 
         private void btnNewEntry_Click(object sender, RoutedEventArgs e)
         {
+            createEntry createEntryWindows = new createEntry(diaryID);
+            createEntryWindows.Show();
 
+            this.Close();
         }
     }
 }

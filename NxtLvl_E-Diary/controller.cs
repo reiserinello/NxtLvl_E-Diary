@@ -62,6 +62,17 @@ namespace NxtLvl_E_Diary
                 return entryList;
             }
         }
+
+        public void createEntry (int diaryID, string title, string text, DateTime entryDate)
+        {
+            using (var ctx = new databaseContext())
+            {
+                entry newEntry = new entry() { name = title, text = text, date = entryDate, domain = "test", diary_id = diaryID };
+
+                ctx.tableObjentry.Add(newEntry);
+                ctx.SaveChanges();
+            }
+        }
     }
     class controller
     {
