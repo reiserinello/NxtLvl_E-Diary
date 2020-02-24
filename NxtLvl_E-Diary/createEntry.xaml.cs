@@ -20,11 +20,18 @@ namespace NxtLvl_E_Diary
     public partial class createEntry : Window
     {
         private int entryDiaryID;
-        public createEntry(int diaryID)
+        public createEntry(int diaryID, string entryTitle, string entryText, DateTime entryDate)
         {
             InitializeComponent();
 
             entryDiaryID = diaryID;
+
+            if (entryText != null && entryText != null)
+            {
+                txtEntryTitle.Text = entryTitle;
+                txtEntryText.Text = entryText;
+                dtpEntryDate.SelectedDate = entryDate;
+            }
         }
 
         private void btnSaveEntry_Click(object sender, RoutedEventArgs e)

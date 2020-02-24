@@ -84,12 +84,13 @@ namespace NxtLvl_E_Diary
             }
         }
 
-        public void editEntry (int entryID)
+        public entry editEntry (int entryID)
         {
             using (var ctx = new databaseContext())
             {
-                //var getEntry = ctx.tableObjentry.Where(e => e.id == entryID).First();
+                var getEntry = ctx.tableObjentry.Where(e => e.id == entryID).First();
 
+                return getEntry;
             }
         }
     }

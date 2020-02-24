@@ -47,7 +47,7 @@ namespace NxtLvl_E_Diary
 
         private void btnNewEntry_Click(object sender, RoutedEventArgs e)
         {
-            createEntry createEntryWindows = new createEntry(diaryID);
+            createEntry createEntryWindows = new createEntry(diaryID,null,null,System.DateTime.MinValue);
             createEntryWindows.Show();
 
             this.Close();
@@ -70,7 +70,13 @@ namespace NxtLvl_E_Diary
             dynamic selectedEntry = dtagrdDiaryEntrys.SelectedItem;
             int selectedEntryID = selectedEntry.ID;
 
+            diaryManipulate diaryManipulateEditEntry = new diaryManipulate();
+            entry entryToEdit = diaryManipulateEditEntry.editEntry(selectedEntryID);
 
+            createEntry createEntryWindows = new createEntry(diaryID, entryToEdit.name, entryToEdit.text, entryToEdit.date);
+            createEntryWindows.Show();
+
+            this.Close();
         }
     }
 }
