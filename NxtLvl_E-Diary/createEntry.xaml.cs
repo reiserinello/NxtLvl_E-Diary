@@ -25,7 +25,6 @@ namespace NxtLvl_E_Diary
             InitializeComponent();
 
             entryDiaryID = diaryID;
-            
         }
 
         private void btnSaveEntry_Click(object sender, RoutedEventArgs e)

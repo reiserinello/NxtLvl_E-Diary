@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Runtime.InteropServices;
+using System.Collections;
 
 namespace NxtLvl_E_Diary
 {
@@ -50,6 +51,26 @@ namespace NxtLvl_E_Diary
             createEntryWindows.Show();
 
             this.Close();
+        }
+
+        private void btnDeleteEntry_Click(object sender, RoutedEventArgs e)
+        {
+            //var selectedEntry = (entry)dtagrdDiaryEntrys.SelectedItem;
+            dynamic selectedEntry = dtagrdDiaryEntrys.SelectedItem;
+            int selectedEntryID = selectedEntry.ID;
+
+            diaryManipulate diaryManipulateDeleteEntry = new diaryManipulate();
+            diaryManipulateDeleteEntry.deleteEntry(selectedEntryID);
+
+            updateDiaryList();
+        }
+
+        private void btnEditEntry_Click(object sender, RoutedEventArgs e)
+        {
+            dynamic selectedEntry = dtagrdDiaryEntrys.SelectedItem;
+            int selectedEntryID = selectedEntry.ID;
+
+
         }
     }
 }

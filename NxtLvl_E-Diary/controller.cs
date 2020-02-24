@@ -73,6 +73,25 @@ namespace NxtLvl_E_Diary
                 ctx.SaveChanges();
             }
         }
+
+        public void deleteEntry (int entryID)
+        {
+            using (var ctx = new databaseContext())
+            {
+                var entryToDelete = ctx.tableObjentry.Where(e => e.id == entryID).First();
+                ctx.tableObjentry.Remove(entryToDelete);
+                ctx.SaveChanges();
+            }
+        }
+
+        public void editEntry (int entryID)
+        {
+            using (var ctx = new databaseContext())
+            {
+                //var getEntry = ctx.tableObjentry.Where(e => e.id == entryID).First();
+
+            }
+        }
     }
     class controller
     {
