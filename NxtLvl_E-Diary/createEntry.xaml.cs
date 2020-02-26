@@ -20,7 +20,9 @@ namespace NxtLvl_E_Diary
     public partial class createEntry : Window
     {
         private int entryDiaryID;
-        public createEntry(int diaryID, string entryTitle, string entryText, DateTime entryDate)
+        private bool updateEntry;
+        private int entryToEditID;
+        public createEntry(int diaryID, int entryID, string entryTitle, string entryText, DateTime entryDate)
         {
             InitializeComponent();
 
@@ -31,6 +33,11 @@ namespace NxtLvl_E_Diary
                 txtEntryTitle.Text = entryTitle;
                 txtEntryText.Text = entryText;
                 dtpEntryDate.SelectedDate = entryDate;
+                entryToEditID = entryID;
+                updateEntry = true;
+            } else
+            {
+                updateEntry = false;
             }
         }
 
@@ -41,8 +48,9 @@ namespace NxtLvl_E_Diary
             DateTime entryDate = dtpEntryDate.SelectedDate.Value.Date;
 
             diaryManipulate manipulateDiary = new diaryManipulate();
-            manipulateDiary.createEntry(entryDiaryID, entryTitle, entryText, entryDate);
 
+            manipulateDiary.createEntry(updateEntry, entryDiaryID, entryToEditID, entryTitle, entryText, entryDate);
+            
             DiaryMain diaryMainClass = new DiaryMain(entryDiaryID);
             diaryMainClass.Show();
 

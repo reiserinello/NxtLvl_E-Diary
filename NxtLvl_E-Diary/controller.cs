@@ -63,13 +63,25 @@ namespace NxtLvl_E_Diary
             }
         }
 
-        public void createEntry (int diaryID, string title, string text, DateTime entryDate)
+        public void createEntry (bool updateEntry, int diaryID, int entryID, string title, string text, DateTime entryDate)
         {
             using (var ctx = new databaseContext())
             {
-                entry newEntry = new entry() { name = title, text = text, date = entryDate, domain = "test", diary_id = diaryID };
+                if (updateEntry == true)
+                {
+                    var entryToEdit = ctx.tableObjentry.Single(e => e.id == entryID);
 
-                ctx.tableObjentry.Add(newEntry);
+                    entryToEdit.name = title;
+                    entryToEdit.text = text;
+                    entryToEdit.date = entryDate;
+                }
+                else
+                {
+                    entry newEntry = new entry() { name = title, text = text, date = entryDate, domain = "test", diary_id = diaryID };
+
+                    ctx.tableObjentry.Add(newEntry);
+                }
+
                 ctx.SaveChanges();
             }
         }
@@ -84,7 +96,7 @@ namespace NxtLvl_E_Diary
             }
         }
 
-        public entry editEntry (int entryID)
+        public entry loadEntry (int entryID)
         {
             using (var ctx = new databaseContext())
             {
@@ -94,7 +106,9 @@ namespace NxtLvl_E_Diary
             }
         }
     }
+    /*
     class controller
     {
     }
+    */
 }
