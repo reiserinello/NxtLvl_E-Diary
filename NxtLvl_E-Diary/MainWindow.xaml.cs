@@ -33,6 +33,9 @@ namespace NxtLvl_E_Diary
                 ctx.tableObjUser.Add(diaryUser);
                 ctx.SaveChanges();
             }
+
+            diaryManipulate manipulateTypes = new diaryManipulate();
+            manipulateTypes.createTypes();
         }
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)

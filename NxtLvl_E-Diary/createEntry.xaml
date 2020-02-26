@@ -5,18 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NxtLvl_E_Diary"
         mc:Ignorable="d"
-        Title="createEntry" Height="312" Width="433.333">
+        Title="createEntry" Height="320.667" Width="442">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition Width="0*"/>
             <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
-        <TextBox x:Name="txtEntryText" HorizontalAlignment="Left" Height="216" Margin="10,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="271"/>
-        <Label x:Name="lblEntryTitle" Content="Title:" HorizontalAlignment="Left" Margin="295,31,0,0" VerticalAlignment="Top" Width="39" Height="26" RenderTransformOrigin="0.615,2.115"/>
-        <TextBox x:Name="txtEntryTitle" HorizontalAlignment="Left" Height="23" Margin="295,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="114"/>
-        <Button x:Name="btnSaveEntry" Content="Save" HorizontalAlignment="Left" Margin="295,226,0,0" VerticalAlignment="Top" Width="114" Height="21" Click="btnSaveEntry_Click"/>
-        <DatePicker x:Name="dtpEntryDate" HorizontalAlignment="Left" Margin="295,85,0,0" VerticalAlignment="Top" Width="114"/>
+        <TextBox x:Name="txtEntryText" HorizontalAlignment="Left" Height="263" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="271"/>
+        <Label x:Name="lblEntryTitle" Content="Title:" HorizontalAlignment="Left" Margin="295,10,0,0" VerticalAlignment="Top" Width="39" Height="28" RenderTransformOrigin="0.615,2.115"/>
+        <TextBox x:Name="txtEntryTitle" HorizontalAlignment="Left" Height="23" Margin="295,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="114"/>
+        <Button x:Name="btnSaveEntry" Content="Save" HorizontalAlignment="Left" Margin="295,252,0,0" VerticalAlignment="Top" Width="114" Height="21" Click="btnSaveEntry_Click"/>
+        <DatePicker x:Name="dtpEntryDate" HorizontalAlignment="Left" Margin="295,66,0,0" VerticalAlignment="Top" Width="114"/>
+        <Label Content="Types:" HorizontalAlignment="Left" Margin="295,96,0,0" VerticalAlignment="Top" Width="72"/>
+        <Grid x:Name="grdTypes" HorizontalAlignment="Left" Height="100" Margin="295,127,0,0" VerticalAlignment="Top" Width="114">
+            <CheckBox x:Name="ckbTypeFamily" Content="Family" HorizontalAlignment="Left" VerticalAlignment="Top" Width="82" Checked="CheckBox_Checked"/>
+            <CheckBox x:Name="ckbTypeSport" Content="Sport" HorizontalAlignment="Left" Margin="0,21,0,0" VerticalAlignment="Top" Width="82" Checked="CheckBox_Checked"/>
+            <CheckBox x:Name="ckbTypeWork" Content="Work" HorizontalAlignment="Left" Margin="0,42,0,0" VerticalAlignment="Top" Width="82" Checked="CheckBox_Checked"/>
+            <CheckBox x:Name="ckbTypeSchool" Content="School" HorizontalAlignment="Left" Margin="0,63,0,0" VerticalAlignment="Top" Width="82" Checked="CheckBox_Checked"/>
+            <CheckBox x:Name="ckbTypeFriends" Content="Friends" HorizontalAlignment="Left" Margin="0,84,0,0" VerticalAlignment="Top" Width="82" Checked="CheckBox_Checked"/>
+        </Grid>
 
     </Grid>
 </Window>

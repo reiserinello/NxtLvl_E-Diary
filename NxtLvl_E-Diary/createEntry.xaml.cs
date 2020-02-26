@@ -47,14 +47,40 @@ namespace NxtLvl_E_Diary
             string entryText = txtEntryText.Text;
             DateTime entryDate = dtpEntryDate.SelectedDate.Value.Date;
 
+            List<CheckBox> checkedBoxesType = new List<CheckBox>();
+            foreach (CheckBox box in grdTypes.Children)
+            {
+                if(box.IsChecked == true)
+                {
+                    checkedBoxesType.Add(box);
+                }
+            }
+
             diaryManipulate manipulateDiary = new diaryManipulate();
 
-            manipulateDiary.createEntry(updateEntry, entryDiaryID, entryToEditID, entryTitle, entryText, entryDate);
+            manipulateDiary.createEntry(updateEntry, entryDiaryID, entryToEditID, entryTitle, entryText, checkedBoxesType, entryDate);
             
             DiaryMain diaryMainClass = new DiaryMain(entryDiaryID);
             diaryMainClass.Show();
 
             this.Close();
+        }
+
+        private void CheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            CheckBox checkedCheckbox = (CheckBox)sender;
+            List<CheckBox> AllTypes = new List<CheckBox>();
+            foreach (CheckBox checkboxType in grdTypes.Children)
+            {
+                AllTypes.Add(checkboxType);
+            }
+
+            if (AllTypes.FindAll(c => c.IsChecked == true).Count > 3)
+            {
+                checkedCheckbox.IsChecked = false;
+                MessageBox.Show("Only three types can be checked", "Attention");
+            }
+
         }
     }
 }

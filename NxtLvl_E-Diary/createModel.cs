@@ -44,8 +44,14 @@ namespace NxtLvl_E_Diary
         public string name { get; set; }
         [Required]
         public string text { get; set; }
-        [Required]
-        public string domain { get; set; }
+        /*
+        public EntryType entrytype1 { get; set;  }
+        public EntryType entrytype2 { get; set;  }
+        public EntryType entrytype3 { get; set;  }
+        */
+        public int entryType1_id { get; set; }
+        public int entryType2_id { get; set; }
+        public int entryType3_id { get; set; }
         [Required]
         public DateTime date { get; set; }
         [ForeignKey("diary")]
@@ -55,6 +61,22 @@ namespace NxtLvl_E_Diary
         // Ein Eintrag kann zu einem Tagebuch gehoeren
         public virtual diary diary { get; set; }
 
+    }
+    /*
+    public enum EntryType
+    {
+        Family = 0,
+        Sport = 1, 
+        Work = 2,
+        School = 4,
+        Friends = 8
+    }
+    */
+    public class type
+    {
+        public int id { get; set; }
+        [Required]
+        public string typename { get; set; }
     }
 
     public class databaseContext : DbContext
@@ -67,6 +89,7 @@ namespace NxtLvl_E_Diary
         public DbSet<user> tableObjUser { get; set; }
         public DbSet<diary> tableObjDiary { get; set; }
         public DbSet<entry> tableObjentry { get; set; }
+        public DbSet<type> tableObjType { get; set; }
     }
 
     /*
